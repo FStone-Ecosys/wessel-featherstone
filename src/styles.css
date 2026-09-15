@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #05030a;
+  --color-surface: #0d0a14;
+  --color-elevated: #16111f;
+  --color-fg: #f6eee6;
+  --color-muted: #b7a89c;
+  --color-subtle: #7a6d64;
+  --color-accent: #e4c48a;
+  --color-accent-fg: #140e08;
+  --color-cyan: #ff4da6;
+  --color-magenta: #ff2d8a;
+  --color-border: rgb(246 238 230 / 0.12);
+  --color-border-strong: rgb(246 238 230 / 0.22);
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel", ui-serif, Georgia, "Times New Roman", serif;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+}
+
+.grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+.metal {
+  background-image: linear-gradient(
+    180deg,
+    #f8ead4 0%,
+    #e0c09a 38%,
+    #c9a27a 58%,
+    #8d6240 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hall-panel {
+  background-image: url("/scenes/hall.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.stage-panel {
+  background-image: url("/scenes/stage.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.obsidian-panel {
+  background-image: url("/scenes/obsidian.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.theme-wessel {
+  --color-accent: #e4c48a;
+  --color-accent-fg: #140e08;
+  --color-cyan: #ff4da6;
+  --color-magenta: #ff2d8a;
+}
+
+.neon-ring {
+  box-shadow:
+    0 0 0 1px rgb(212 176 140 / 0.35),
+    0 0 24px rgb(61 232 255 / 0.18),
+    0 0 48px rgb(255 61 154 / 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
