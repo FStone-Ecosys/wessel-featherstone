@@ -14,7 +14,7 @@ export const WESSEL = {
   deezerArtist: "377524921",
   youtube: "https://www.youtube.com/@HouseFeatherstone.LFSTN.Studio",
   instagram: "https://www.instagram.com/lrd.w.featherstone/",
-  photo: "/art/wessel-mark.jpg",
+  photo: "/art/wessel-photo.jpg",
 };
 
 export const WESSEL_PLATFORMS = [

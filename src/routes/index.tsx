@@ -93,8 +93,8 @@ function Hero() {
         <source media="(min-width: 768px)" srcSet="/art/wessel-wide.jpg" />
         <img
           src="/art/wessel-portrait.jpg"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+          alt="Wessel Featherstone"
+          className="absolute inset-0 h-full w-full object-cover object-[center_12%]"
         />
       </picture>
       <div className="absolute inset-0 bg-gradient-to-b from-bg/55 via-transparent to-bg" />
@@ -395,6 +395,11 @@ function Story() {
           <p className="mt-4 max-w-xl text-pretty text-muted">{WESSEL.bio2}</p>
         </div>
         <div className="grid gap-4">
+          <img
+            src="/art/wessel-photo.jpg"
+            alt="Wessel Featherstone"
+            className="h-[28rem] w-full rounded-xl border border-border object-cover object-[center_12%] md:h-[32rem]"
+          />
           <figure className="rounded-xl border border-border bg-surface/80 p-6">
             <blockquote className="font-display text-2xl leading-snug text-pretty text-fg italic">
               We eat the filth. We drink the rain.
