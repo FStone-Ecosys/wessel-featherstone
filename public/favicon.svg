@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="Jordan Dysel">
-  <rect width="16" height="16" rx="3" fill="#05030a"/>
-  <path fill="#d4b08c" d="M2 3h5v10H2v-2h3V5H2z"/>
-  <path fill="#d4b08c" fill-rule="evenodd" d="M8 3h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8zM10 5h1.2A1.8 1.8 0 0 1 13 6.8v2.4A1.8 1.8 0 0 1 11.2 11H10z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="WF">
+  <rect width="32" height="32" rx="7" fill="#05030a"/>
+  <g fill="none" stroke="#e4c48a" stroke-width="2.15" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M4.6 9 L8.2 23 L11.5 12.5 L14.8 23 L18.4 9"/>
+    <path d="M21.2 9 V23"/>
+    <path d="M21.2 9 H28.2"/>
+    <path d="M21.2 16 H26.6"/>
+  </g>
 </svg>
