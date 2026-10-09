@@ -53,6 +53,22 @@ export const WESSEL_PLATFORMS = [
 const R = "/covers-wessel/reckoning.jpg";
 const S = "/covers-wessel/sonobsidian.jpg";
 
+export const WESSEL_UPCOMING: Track[] = [
+  {
+    id: "nader",
+    title: "Nader",
+    year: 2026,
+    duration: "3:35",
+    durationSec: 215,
+    cover: "/covers-wessel/nader.jpg",
+    preview: "/previews-wessel/nader.mp3",
+    genre: "Afrikaans Pop",
+    album: "Kom Hier",
+    upcoming: true,
+    chart: "Upcoming",
+  },
+];
+
 export const WESSEL_TRACKS: Track[] = [
   {
     id: "bubble",
@@ -385,3 +401,4 @@ export const WESSEL_TRACKS: Track[] = [
 
 export const WESSEL_LATEST = WESSEL_TRACKS.find((t) => t.latest) ?? WESSEL_TRACKS[0];
 export const WESSEL_FEATURED = WESSEL_TRACKS.filter((t) => t.featured);
+export const WESSEL_PLAYABLE = [...WESSEL_UPCOMING, ...WESSEL_TRACKS];

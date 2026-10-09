@@ -8,7 +8,9 @@ import {
   WESSEL_FEATURED,
   WESSEL_LATEST,
   WESSEL_PLATFORMS,
+  WESSEL_PLAYABLE,
   WESSEL_TRACKS,
+  WESSEL_UPCOMING,
 } from "@/data/wessel";
 import type { Track } from "@/data/catalog";
 import { cn } from "@/lib/utils";
@@ -29,7 +31,7 @@ export const Route = createFileRoute("/")({
 
 function Page() {
   return (
-    <PlayerProvider tracks={WESSEL_TRACKS} artistName={WESSEL.name}>
+    <PlayerProvider tracks={WESSEL_PLAYABLE} artistName={WESSEL.name}>
       <div className="theme-wessel relative min-h-screen overflow-x-hidden bg-bg pb-32 text-fg">
         <div
           aria-hidden
@@ -37,6 +39,7 @@ function Page() {
         />
         <Nav />
         <Hero />
+        <Upcoming />
         <FeaturedRail />
         <Catalog />
         <SpotifyStage />
@@ -148,6 +151,57 @@ function Stat({ label, value }: { label: string; value: string }) {
       <dt className="text-[11px] tracking-[0.18em] text-subtle uppercase">{label}</dt>
       <dd className="mt-1 font-display text-xl tracking-wide text-accent">{value}</dd>
     </div>
+  );
+}
+
+
+function Upcoming() {
+  const { play, toggle, playing, track } = usePlayer();
+  const next = WESSEL_UPCOMING[0];
+  if (!next) return null;
+  const active = playing && track.id === next.id;
+
+  return (
+    <section id="upcoming" className="relative px-5 pt-16 md:px-10">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 border-b border-border pb-16 md:grid-cols-[280px_1fr]">
+        <button
+          type="button"
+          onClick={() => (track.id === next.id ? toggle() : play(next))}
+          className="group relative aspect-square overflow-hidden rounded-xl text-left"
+          aria-label={`${active ? "Pause" : "Play"} ${next.title} preview`}
+        >
+          <img src={next.cover} alt="" className="h-full w-full object-cover" />
+          <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-[10px] font-medium tracking-[0.22em] text-accent-fg uppercase">
+            Upcoming
+          </span>
+          <span className="absolute inset-0 flex items-center justify-center bg-bg/40 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-fg">
+              {active ? <Pause className="size-4 fill-current" /> : <Play className="size-4 fill-current" />}
+            </span>
+          </span>
+        </button>
+        <div>
+          <p className="text-[11px] tracking-[0.28em] text-accent uppercase">Upcoming release</p>
+          <h2 className="metal mt-2 font-display text-4xl font-medium tracking-wide md:text-6xl">
+            {next.title}
+          </h2>
+          <p className="mt-3 text-sm text-muted">
+            {next.album} · {next.genre} · {next.duration}
+          </p>
+          <p className="mt-4 max-w-md text-pretty text-muted">
+            Thirty-second preview from the supplied cut. Not on the live catalog yet.
+          </p>
+          <button
+            type="button"
+            onClick={() => (active ? toggle() : play(next))}
+            className="mt-6 inline-flex h-12 items-center gap-2.5 rounded-full bg-accent px-6 text-sm font-medium text-accent-fg hover:bg-fg"
+          >
+            {active ? <Pause className="size-4 fill-current" /> : <Play className="size-4 fill-current" />}
+            {active ? "Pause preview" : `Play ${next.title}`}
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }
 

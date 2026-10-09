@@ -13,6 +13,7 @@ export type Track = {
   feat?: string;
   album?: string;
   explicit?: boolean;
+  upcoming?: boolean;
   spotify?: string;
   apple?: string;
   deezer?: string;
